@@ -21,3 +21,24 @@ class Chinpokomon():
 
     def setNaturaleza(self,naturaleza):
         self.naturaleza = naturaleza
+    
+
+    def ataque(self,unChimpokomon):
+        if (self.noEstaMuertoOtroChimpokomon(unChimpokomon) and self.estoyVivo()):
+            self.ataca 
+            "seguir con el codigo"
+        
+
+    def atacarSegunAtaqueSeleccionado(self,chimpokomonAAtacar):
+        if(self.getAtaques().size() == 1):
+            self.getAtaques().get(0).generarEfecto(self, chimpokomonAAtacar)
+        else:
+            "seguir con el codigo"
+        
+
+    def estoyVivo(self):
+        return self.getVida() > 0
+
+    def noEstaMuertoOtroChimpokomon(self,chimpokomon):
+        return chimpokomon.getVida() > 0
+    
