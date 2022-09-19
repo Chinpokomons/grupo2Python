@@ -1,21 +1,14 @@
 from modelo.Ataque import Ataque
+from GeneracionDeRandom import NumAleatorio
+class AtaqueZapatazo:
 
-
-public class AtaqueZapatazo extends Ataque{
-
-    public AtaqueZapatazo(int valorDeAtaque) {
+    def __init__(self,valorDeAtaque):
         super(valorDeAtaque)
-        this.setValorAtaqueNaturaleza(3)
-    }
-
-    @ Override
-    public void generarEfecto(Chinpokomon chinpokomon1, Chinpokomon chinpokomon2) {
-
+        #this.setValorAtaqueNaturaleza(3)
+    
+    def generarEfecto( chinpokomon1, chinpokomon2):
         super.generarEfecto(chinpokomon1, chinpokomon2)
-        if(this.generarRandom(2) == 1){
+        if(NumAleatorio.generarRandom(2) == 1):
             super.generarEfecto(chinpokomon1, chinpokomon2)
-        }
+        
 
-
-    }
-}
