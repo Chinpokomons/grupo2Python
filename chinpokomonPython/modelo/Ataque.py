@@ -42,8 +42,7 @@ class Ataque(object):
     def danioExtraNaturaleza(self,chinpokomon1: Chinpokomon, chinpokomon2: Chinpokomon):
         # //determinamos si el chinpokomon1 tiene ventaja de naturaleza sobre el chinpokomon2
         # // si tiene ventaja por naturaleza accedera a este if y aumentara el ataque instanciado al inicio + daño adicional
-        print("dentro de danio extra esta entrande<"+str(chinpokomon1))
-        print("dentro de danio extra esta entrande<"+str(chinpokomon2))
+       
         if(chinpokomon1.getNaturaleza().tieneVentaja(chinpokomon2.getNaturaleza())):
             return self.valorAtaqueNaturaleza
         else:
