@@ -3,13 +3,13 @@ from Estado import Estado
 
 class Error(Estado):
     def info2(self, mensaje):
-        pass
+        return
 
     def warn2(self, mensaje):
-        pass
+        return
 
     def error2(self, mensaje):
         print("ERROR: " + mensaje)
 
     def debug2(self, mensaje):
-        pass
+        return

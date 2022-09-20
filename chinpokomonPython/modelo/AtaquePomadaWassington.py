@@ -1,13 +1,11 @@
 from Ataque import Ataque
 
+class AtaquePomadaWassington(Ataque):
 
-def AtaquePomadaWassington(Ataque):
-
-    def AtaquePomadaWassington(self, valorDeAtaque):
-        super(valorDeAtaque)
-    #   //agregamos el danio extra que realiza este ataque si tiene ventaja de naturaleza
-    #     this.setValorAtaqueNaturaleza(1);
-
+    def __init__(self, valorDeAtaque,valorAtaqueNaturaleza):
+       super().__init__(valorDeAtaque,valorAtaqueNaturaleza)
+  
     def generarEfecto(self, chinpokomon1, chinpokomon2):
         print("Entre a pomada")
-        chinpokomon1.vida(chinpokomon1.vida() + self.valorDeAtaque())
+        nuevaVida = chinpokomon1.getVida() + self.valorDelAtaque()
+        chinpokomon1.setVida(nuevaVida)

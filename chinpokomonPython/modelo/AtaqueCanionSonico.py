@@ -1,8 +1,5 @@
 from Ataque import Ataque
 
-
-def AtaqueCanionSonico(Ataque):
-    def AtaqueCanionSonico(self, valorDeAtaque):
-        super(valorDeAtaque)
-        #   //agregamos el danio extra que realiza este ataque si tiene ventaja de naturaleza
-        #     this.setValorAtaqueNaturaleza(1);
+class AtaqueCanionSonico(Ataque):
+    def __init__(self, valorDeAtaque,valorAtaqueNaturaleza):
+        super().__init__(valorDeAtaque,valorAtaqueNaturaleza)

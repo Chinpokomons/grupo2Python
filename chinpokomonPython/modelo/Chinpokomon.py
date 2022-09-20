@@ -1,3 +1,6 @@
+from random import random
+
+
 class Chinpokomon():
 
     # aca irian los atributos, agregar property
@@ -9,14 +12,17 @@ class Chinpokomon():
         self.__random = None
 
     def getRandom(self):
-        return self.__random
+        return self.random
 
     def setRandom(self, random):
-        self.__random = random
+        self.random = random
 
     def setNombre(self, nombre):
         self.nombre = nombre
 
+    def getNaturaleza(self):
+        return self.naturaleza
+    
     def getNombre(self):
         return self.nombre
 
@@ -41,14 +47,21 @@ class Chinpokomon():
 
     def atacarSegunAtaqueSeleccionado(self, chimpokomonAAtacar):
         if(len(self.getAtaques()) == 1):
-            self.getAtaques()[0].generarEfecto(self, chimpokomonAAtacar)
+    
+            ataque = self.getAtaques()[0]
+            ataque.generarEfecto(self,chimpokomonAAtacar)
         else:
-            ataqueElegido = self.getrandom().generarRandom(len(self.getAtaques()))
-            self.getAtaques()[ataqueElegido].generarEfecto(
-                self, chimpokomonAAtacar)
+            cantidadDeAtaques = len(self.getAtaques())
+            rand=self.getRandom()
+            ataqueElegido = rand.generarRandom(cantidadDeAtaques)
+            ataque = self.getAtaques()[ataqueElegido]
+            ataque.generarEfecto(self,chimpokomonAAtacar)
 
     def estoyVivo(self):
         return self.getVida() > 0
 
     def noEstaMuertoOtroChimpokomon(self, chimpokomon):
         return chimpokomon.getVida() > 0
+
+    def toString(self):
+        return self.getNombre() + " " + str(self.getVida()) 

@@ -1,19 +1,18 @@
-from random import random
+import random
 from Chinpokomon import Chinpokomon
-
-class Ataque:
-    def __init__(self, valorDeAtaque):
+class Ataque(object):
+    def __init__(self, valorDeAtaque,valorAtaqueNaturaleza):
         self.__valorDeAtaque = valorDeAtaque
-        self.__valorAtaqueNaturaleza = 0
-        self.__random = random.random()
+        self.__valorAtaqueNaturaleza = valorAtaqueNaturaleza
+        self.__random = random
 
     def generarEfecto(self, chinpokomon1, chinpokomon2):
         if self.sePuedeAtacar(chinpokomon1, chinpokomon2):
-            chinpokomon2.vida(chinpokomon2.vida - self.valorDeAtaque - \
+            chinpokomon2.setVida(chinpokomon2.getVida() - self.valorDeAtaque - \
                               self.danioExtraNaturaleza(chinpokomon1, chinpokomon2))
 
     def sePuedeAtacar(self, chinpokomon1, chinpokomon2):
-        return chinpokomon2.vida() > 0 | chinpokomon1.vida() > 0
+        return chinpokomon2.getVida() > 0 or chinpokomon1.getVida() > 0
 
     # getters
     @ property
@@ -28,16 +27,23 @@ class Ataque:
     def valorAtaqueNaturaleza(self):
         return self.__valorAtaqueNaturaleza
 
-    @ valorAtaqueNaturaleza.setter
-    def valorAtaqueNaturaleza(self, valorAtaqueNatural):
+    def valorDelAtaque(self):
+        return self.valorDeAtaque
+    
+    def getRandom(self):
+        return self.__random
+
+    def setValorAtaqueNaturaleza(self, valorAtaqueNatural):
         self.__valorAtaqueNaturaleza=valorAtaqueNatural
 
     def generarRandom(self, valorMaximoExcluyente):
-        return self.__random.randint(0, valorMaximoExcluyente)
+        return self.getRandom().randint(0, valorMaximoExcluyente)
 
-    def danioExtraNaturaleza(self,chinpokomon1, chinpokomon2):
+    def danioExtraNaturaleza(self,chinpokomon1: Chinpokomon, chinpokomon2: Chinpokomon):
         # //determinamos si el chinpokomon1 tiene ventaja de naturaleza sobre el chinpokomon2
         # // si tiene ventaja por naturaleza accedera a este if y aumentara el ataque instanciado al inicio + daño adicional
+        print("dentro de danio extra esta entrande<"+str(chinpokomon1))
+        print("dentro de danio extra esta entrande<"+str(chinpokomon2))
         if(chinpokomon1.getNaturaleza().tieneVentaja(chinpokomon2.getNaturaleza())):
             return self.valorAtaqueNaturaleza
         else:

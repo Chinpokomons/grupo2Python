@@ -12,4 +12,4 @@ class Info(Estado):
         print("ERROR: " + mensaje)
 
     def debug2(self, mensaje):
-        pass
+        return

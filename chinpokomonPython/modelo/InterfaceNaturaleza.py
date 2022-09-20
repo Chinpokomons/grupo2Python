@@ -4,12 +4,11 @@ from typing import Any
 
 class InterfaceNaturaleza(ABC):
     """
-    Interfaz con metodos abstractos de naturaleza
-    """
-    @abstractmethod
+    Interfaz que representa una naturaleza.
+  """
+  
     def getNombre(self):
         pass
 
-    @abstractmethod
     def tieneVentaja(self, chinpokomon):
         pass

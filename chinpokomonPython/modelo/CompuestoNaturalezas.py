@@ -6,7 +6,7 @@ from typing import List
 class CompuestoNaturalezas(Naturaleza):
 
     def __init__(self):
-        Naturaleza.__init__("Naturalezas")
+        super().__init__("Naturalezas")
         self.naturalezas: List[InterfaceNaturaleza] = []
 
     def agregar(self, naturaleza):

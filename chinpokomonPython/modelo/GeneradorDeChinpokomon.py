@@ -28,19 +28,6 @@ class GeneradorDeChinpokomon:
     def builder(self, builder: Builder):
         self._builder = builder
 
-    def buildZapato(self):
-        ataqueZapato = self.generarAtaqueZapatazo()
-        ataques = [ataqueZapato]
-        naturalezaCosa = self.generarNaturalezaCosa()
-        listaNaturalezas = self.generarNaturalezaCompuesto()
-        listaNaturalezas.agregar(naturalezaCosa)
-        self._builder.setRandom(random)
-        self._builder.setNombre("Zapato")
-        self._builder.setVida(30)
-        self._builder.setAtaques(ataques)
-        self._builder.setNaturaleza(listaNaturalezas)
-        return self._builder.chinpokomon()
-
     def buildGallotronix(self):
         self._builder.setRandom(random)
         self._builder.setNombre("Gallotronix")
@@ -56,8 +43,8 @@ class GeneradorDeChinpokomon:
         self._builder.setRandom(random)
         self._builder.setNombre("Zapato")
         self._builder.setVida(30)
-        ataquePomadaWassington = self.generarAtaqueAtaquePomadaWassington()
-        ataquesZapato = [ataquePomadaWassington]
+        ataqueZapato = self.generarAtaqueZapatazo()
+        ataquesZapato = [ataqueZapato]
         self._builder.setAtaques(ataquesZapato)
         naturalezaCosa = self.generarNaturalezaCosa()
         self._builder.setNaturaleza(naturalezaCosa)
@@ -75,29 +62,41 @@ class GeneradorDeChinpokomon:
         self._builder.setNaturaleza(naturalezaCosa)
         return self._builder.chinpokomon()
 
+    def buildCarnotron(self):
+        self._builder.setRandom(random)
+        self._builder.setNombre("Carnotron")
+        self._builder.setVida(30)
+        ataqueVeloz = self.generarAtaqueRayoVeloz()
+        ataqueCanionSonico = self.generarAtaqueAtaqueCanionSonico()
+        ataquesCarnotron = [ataqueVeloz, ataqueCanionSonico]
+        self._builder.setAtaques(ataquesCarnotron)
+        naturalezaAnimal = self.generarNaturaleza()
+        self._builder.setNaturaleza(naturalezaAnimal)
+        return self._builder.chinpokomon()
+
     def generarNaturaleza(self):
-        return AnimalNaturaleza()
+        return AnimalNaturaleza("Animal")
 
     def generarNaturalezaRobot(self):
-        return RobotNaturaleza()
+        return RobotNaturaleza("Robot")
 
     def generarNaturalezaCosa(self):
-        return CosaNaturaleza()
+        return CosaNaturaleza("Cosa")
 
     def generarNaturalezaCompuesto(self):
         return CompuestoNaturalezas()
 
     def generarAtaqueAtaqueCanionSonico(self):
-        return AtaqueCanionSonico()
+        return AtaqueCanionSonico(4,1)
 
     def generarAtaqueAtaqueGarraMecanica(self):
-        return AtaqueGarraMecanica()
+        return AtaqueGarraMecanica(2,2)
 
     def generarAtaqueAtaquePomadaWassington(self):
-        return AtaquePomadaWassington()
+        return AtaquePomadaWassington(5,1)
 
     def generarAtaqueRayoVeloz(self):
-        return AtaqueRayoVeloz()
+        return AtaqueRayoVeloz(3,1)
 
     def generarAtaqueZapatazo(self):
-        return AtaqueZapatazo()
+        return AtaqueZapatazo(1,3)

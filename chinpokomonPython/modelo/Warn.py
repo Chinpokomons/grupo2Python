@@ -3,7 +3,7 @@ from Estado import Estado
 
 class Warn(Estado):
     def info2(self, mensaje):
-        pass
+        return
 
     def warn2(self, mensaje):
         print("WARN: " + mensaje)
@@ -12,4 +12,4 @@ class Warn(Estado):
         print("ERROR: " + mensaje)
 
     def debug2(self, mensaje):
-        pass
+        return

@@ -9,27 +9,20 @@ class Builder(ABC):
     the Product objects.
     """
 
-    @property
-    @abstractmethod
     def chinpokomon(self):
         pass
 
-    @abstractmethod
     def setNombre(self, nombre):
         pass
-
-    @abstractmethod
+    
     def setAtaques(self, listaDeAtaques):
         pass
-
-    @abstractmethod
+   
     def setVida(self, vida):
         pass
 
-    @abstractmethod
     def setNaturaleza(self, naturaleza):
         pass
 
-    @abstractmethod
     def setRandom(self, random):
         pass

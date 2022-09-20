@@ -149,13 +149,13 @@ class Logger(object):
         return self.__estado
 
     def debug(self, string):
-        self.__estado.debug(string)
+        self.__estado.debug2(string)
 
     def info(self, string):
-        self.__estado.info(string)
+        self.__estado.info2(string)
 
     def warn(self, string):
-        self.__estado.warn(string)
+        self.__estado.warn2(string)
 
     def error(self, string):
-        self.__estado.error(string)
+        self.__estado.error2(string)

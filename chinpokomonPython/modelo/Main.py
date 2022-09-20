@@ -35,38 +35,40 @@ def main():
     builder = BuilderOfChinpokomon()
     generador = GeneradorDeChinpokomon()
     generador.builder = builder
-    zapatito = generador.crearZapato(builder)
-    gallotronix = generador.crearGallotronix(builder)
+    print(generador.builder)
+    zapatito = generador.buildZapato()
+    gallotronix = generador.buildGallotronix()
     print(
         "!-------------------punto 1-------------------------------------!")
-    loggerSingleton.info("lA VIDA DEL ZAPATO " + zapatito +
-                         " AL EMPEZAR ES: " + zapatito.getVida())
+    loggerSingleton.info("lA VIDA DEL ZAPATO " + zapatito.toString() +
+                         " AL EMPEZAR ES: " + str(zapatito.getVida()))
     print("-------------")
     loggerSingleton.info("lA VIDA DEL gallotronix " +
-                         gallotronix + " AL EMPEZAR ES: " + gallotronix.getVida())
+                         gallotronix.toString() + " AL EMPEZAR ES: " + str(gallotronix.getVida()))
 
     print("-------------")
 
     arena1 = ArenaDeBatalla(zapatito, gallotronix)
     print(arena1)
-    arena1.pelea(loggerSingleton)
+    arena1.pelear(loggerSingleton)
 
     # //punto 4
     print(
         "!-------------------punto 4-------------------------------------!")
-    zapatoEspecial = generador.crearZapatoConDosAtaques(builder)
-
-    loggerSingleton.info("lA VIDA DEL ZAPATO " + zapatoEspecial +
-                         " AL EMPEZAR ES: " + zapatito.getVida())
+    zapatoEspecial = generador.buildZapatoEspecial()
+    carnotron = generador.buildCarnotron()
+    
+    loggerSingleton.info("lA VIDA DEL ZAPATO " + zapatoEspecial.toString() +
+                         " AL EMPEZAR ES: " + str(zapatoEspecial.getVida()))
     print("-------------")
     loggerSingleton.info("lA VIDA DEL gallotronix " +
-                         gallotronix + " AL EMPEZAR ES: " + gallotronix.getVida())
+                         carnotron.toString() + " AL EMPEZAR ES: " + str(carnotron.getVida()))
 
     print("-------------")
 
-    arena2 = ArenaDeBatalla(zapatoEspecial, gallotronix)
+    arena2 = ArenaDeBatalla(zapatoEspecial, carnotron)
     print(arena2)
-    arena2.pelea(loggerSingleton)
+    arena2.pelear(loggerSingleton)
 
 
 main()

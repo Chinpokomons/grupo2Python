@@ -1,11 +1,9 @@
 from Ataque import Ataque
-
-
-def AtaqueGarraMecanica(Ataque):
-    def AtaqueGarraMecanica(self, valorDeAtaque):
-        super(valorDeAtaque)
-        # //agregamos el danio extra que realiza este ataque si tiene ventaja de naturaleza
-        # this.setValorAtaqueNaturaleza(2);
+from Chinpokomon import Chinpokomon
+class AtaqueGarraMecanica(Ataque):
+    def __init__(self, valorDeAtaque,valorAtaqueNaturaleza):
+        super().__init__(valorDeAtaque,valorAtaqueNaturaleza)
+        
 
     def generarEfecto(self, chinpokomon1, chinpokomon2):
         random = self.generarRandom(10)
@@ -14,14 +12,14 @@ def AtaqueGarraMecanica(Ataque):
         else:
             self.generarEfectoBasico(chinpokomon1, chinpokomon2)
 
-    def obtenerVidaRestanteDeChinpokomon(self, chinpokomon):
-        return chinpokomon.vida()
+    def obtenerVidaRestanteDeChinpokomon(self, chinpokomon : Chinpokomon):
+        return chinpokomon.getVida()
 
     def sacarMitadDeLaVidaQueLeQueda(self, chinpokomon):
-        chinpokomon.vida(self.obtenerVidaRestanteDeChinpokomon(
+        chinpokomon.setVida(self.obtenerVidaRestanteDeChinpokomon(
             chinpokomon) - self.obtenerVidaRestanteDeChinpokomon(chinpokomon)/2)
 
-    def generarEfectoBasico(self, chinpokomon1, chinpokomon2):
+    def generarEfectoBasico(self, chinpokomon1, chinpokomon2: Chinpokomon):
         if self.sePuedeAtacar(chinpokomon1, chinpokomon2):
-            chinpokomon2.vida(chinpokomon2.vida - self.valorDeAtaque -
+            chinpokomon2.setVida(chinpokomon2.getVida() - self.valorDeAtaque -
                               self.danioExtraNaturaleza(chinpokomon1, chinpokomon2))

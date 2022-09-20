@@ -25,3 +25,6 @@ class BuilderOfChinpokomon(Builder):
 
     def setNaturaleza(self,naturaleza):
         self._chinpokomon.setNaturaleza(naturaleza)
+    
+    def setRandom(self, random):
+        self._chinpokomon.setRandom(random)

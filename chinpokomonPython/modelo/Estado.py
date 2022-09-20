@@ -1,5 +1,4 @@
-class Estado(object):
-    "Clase que representa una persona."
+class Estado():
 
     def info2(self, mensaje):
         pass
