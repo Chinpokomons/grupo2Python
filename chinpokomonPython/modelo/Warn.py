@@ -1,12 +1,12 @@
-from estados.Estado import Estado
+from Estado import Estado
 
 
-class Error(Estado):
+class Warn(Estado):
     def info2(self, mensaje):
         pass
 
     def warn2(self, mensaje):
-        pass
+        print("WARN: " + mensaje)
 
     def error2(self, mensaje):
         print("ERROR: " + mensaje)

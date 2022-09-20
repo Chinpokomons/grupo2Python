@@ -15,17 +15,21 @@ class Builder(ABC):
         pass
 
     @abstractmethod
-    def setNombre(self,nombre):
+    def setNombre(self, nombre):
         pass
 
     @abstractmethod
-    def setAtaques(self,listaDeAtaques):
+    def setAtaques(self, listaDeAtaques):
         pass
 
     @abstractmethod
-    def setVida(self,vida):
+    def setVida(self, vida):
         pass
 
     @abstractmethod
-    def setNaturaleza(self,naturaleza):
+    def setNaturaleza(self, naturaleza):
+        pass
+
+    @abstractmethod
+    def setRandom(self, random):
         pass

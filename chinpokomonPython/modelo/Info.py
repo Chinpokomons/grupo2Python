@@ -1,4 +1,4 @@
-from estados.Estado import Estado
+from Estado import Estado
 
 
 class Info(Estado):

@@ -145,7 +145,7 @@ class Logger(object):
     def set_nivel(self, estado):
         self.__estado = estado
 
-    def get(self):
+    def getInstance(self):
         return self.__estado
 
     def debug(self, string):

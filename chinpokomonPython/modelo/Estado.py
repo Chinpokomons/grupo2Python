@@ -1,15 +1,14 @@
-from estados.Estado import Estado
+class Estado(object):
+    "Clase que representa una persona."
 
-
-class Warn(Estado):
     def info2(self, mensaje):
         pass
 
     def warn2(self, mensaje):
-        print("WARN: " + mensaje)
+        pass
 
     def error2(self, mensaje):
-        print("ERROR: " + mensaje)
+        pass
 
     def debug2(self, mensaje):
         pass

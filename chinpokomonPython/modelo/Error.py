@@ -1,15 +1,15 @@
-from estados.Estado import Estado
+from Estado import Estado
 
 
-class Debug(Estado):
+class Error(Estado):
     def info2(self, mensaje):
-        print("INFO: " + mensaje)
+        pass
 
     def warn2(self, mensaje):
-        print("WARN: " + mensaje)
+        pass
 
     def error2(self, mensaje):
         print("ERROR: " + mensaje)
 
     def debug2(self, mensaje):
-        print("DEBUG: " + mensaje)
+        pass

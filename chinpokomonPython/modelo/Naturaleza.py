@@ -1,6 +1,7 @@
-from InterfaceNaturaleza import Natural
+from InterfaceNaturaleza import InterfaceNaturaleza
 
-class Naturaleza(Natural):
+
+class Naturaleza(InterfaceNaturaleza):
 
     def __init__(self, nombre):
         self.nombre = nombre
