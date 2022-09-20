@@ -1,5 +1,5 @@
 class ArenaDeBatalla:
-
+    
     def __init__(self,chinpokomon1,chinpokomon2):
         self._chinpokomon1 = chinpokomon1
         self._chinpokomon2 = chinpokomon2
