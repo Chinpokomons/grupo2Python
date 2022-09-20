@@ -8,8 +8,7 @@ class AtaqueZapatazo(Ataque):
         
 
     def generarEfecto(self,chinpokomon1, chinpokomon2):
-        print(str(chinpokomon1))
-        print(str(chinpokomon2))
+        
         super().generarEfecto(chinpokomon1, chinpokomon2)
         if(self.rand.generarRandom(2) == 1):
             super().generarEfecto(chinpokomon1, chinpokomon2)
