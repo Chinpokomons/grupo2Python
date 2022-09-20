@@ -1,0 +1,2 @@
+En el proyecto python trasladamos los mismos patrones de diseño de java con los cambios de sintaxis necesarios para su correcto funcionamiento, como por ejemplo las notaciones.
+Usamos los patrones de diseño Builder, Singleton y Composite
