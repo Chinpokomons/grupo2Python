@@ -1,30 +1,32 @@
 from Builder import Builder
 from Chinpokomon import Chinpokomon
 
+
 class BuilderOfChinpokomon(Builder):
 
     def __init__(self):
-        self._chinpokomon = Chinpokomon()
+        self.chinpokomon = Chinpokomon()
 
     def reset(self):
-        self._chinpokomon = Chinpokomon()
+        self.chinpokomon = Chinpokomon()
 
+    @property
     def chinpokomon(self):
-        chinpokomon = self._chinpokomon
+        chinpokomon = self.chinpokomon
         self.reset()
         return chinpokomon
 
-    def setNombre(self,nombre):
-        self._chinpokomon.setNombre(nombre)
+    def setNombre(self, nombre):
+        self.chinpokomon.nombre(nombre)
 
-    def setVida(self,vida):
-        self._chinpokomon.setVida(vida)
+    def setVida(self, vida):
+        self.chinpokomon.vida(vida)
 
-    def setAtaques(self,listaDeAtaques):
-        self._chinpokomon.setAtaques(listaDeAtaques)
+    def setAtaques(self, listaDeAtaques):
+        self.chinpokomon.listaAtaques(listaDeAtaques)
 
-    def setNaturaleza(self,naturaleza):
-        self._chinpokomon.setNaturaleza(naturaleza)
-    
+    def setNaturaleza(self, naturaleza):
+        self.chinpokomon.naturaleza(naturaleza)
+
     def setRandom(self, random):
-        self._chinpokomon.setRandom(random)
+        self.chinpokomon.random(random)

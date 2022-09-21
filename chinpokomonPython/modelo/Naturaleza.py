@@ -4,10 +4,11 @@ from InterfaceNaturaleza import InterfaceNaturaleza
 class Naturaleza(InterfaceNaturaleza):
 
     def __init__(self, nombre):
-        self.nombre = nombre
+        self._nombre = nombre
 
-    def getNombre(self):
-        return self.nombre
+    @property
+    def nombre(self):
+        return self._nombre
 
     def tieneVentaja(self, naturaleza):
         return True
