@@ -7,4 +7,4 @@ class RobotNaturaleza(Naturaleza):
         super().__init__(nombre)
 
     def tieneVentaja(self, naturaleza):
-        return True if naturaleza.nombre() == "Animal" else False
+        return True if naturaleza.nombre == "Animal" else False

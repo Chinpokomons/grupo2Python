@@ -12,35 +12,37 @@ from CosaNaturaleza import CosaNaturaleza
 from CompuestoNaturalezas import CompuestoNaturalezas
 from GeneracionDeRandom import NumAleatorio
 
-random = NumAleatorio()
-
-
 class GeneradorDeChinpokomon:
-
-    def __init__(self):
-        self.builder = None
-
+    
+    def __init__(self,builder):
+        self.__builder = builder
+        self.__random = NumAleatorio()
     @property
-    def builder(self) -> Builder:
-        return self.builder
+    def builder(self):
+        return self.__builder
 
     @builder.setter
-    def builder(self, builder: Builder):
-        self.builder = builder
+    def builder(self, builder):
+        self.__builder = builder
+    
+    @property
+    def random(self):
+        return self.__random
 
     def buildGallotronix(self):
-        self.builder.setRandom(random)
+        self.builder.setRandom(self.random)
         self.builder.setNombre("Gallotronix")
-        self.builder.setVida(30)
+        self.builder.setVida(25)
         ataqueGarraMecanica = self.generarAtaqueAtaqueGarraMecanica()
         ataquesGallotronix = [ataqueGarraMecanica]
         self.builder.setAtaques(ataquesGallotronix)
         naturalezaRobot = self.generarNaturalezaRobot()
         self.builder.setNaturaleza(naturalezaRobot)
-        return self.builder.chinpokomon()
+        print(self.builder)
+        return self.builder.resultado()
 
     def buildZapato(self):
-        self.builder.setRandom(random)
+        self.builder.setRandom(self.random)
         self.builder.setNombre("Zapato")
         self.builder.setVida(30)
         ataqueZapato = self.generarAtaqueZapatazo()
@@ -48,10 +50,10 @@ class GeneradorDeChinpokomon:
         self.builder.setAtaques(ataquesZapato)
         naturalezaCosa = self.generarNaturalezaCosa()
         self.builder.setNaturaleza(naturalezaCosa)
-        return self.builder.chinpokomon()
+        return self.builder.resultado()
 
     def buildZapatoEspecial(self):
-        self.builder.setRandom(random)
+        self.builder.setRandom(self.random)
         self.builder.setNombre("Zapato")
         self.builder.setVida(30)
         ataqueZapato = self.generarAtaqueZapatazo()
@@ -60,19 +62,19 @@ class GeneradorDeChinpokomon:
         self.builder.setAtaques(ataquesZapato)
         naturalezaCosa = self.generarNaturalezaCosa()
         self.builder.setNaturaleza(naturalezaCosa)
-        return self.builder.chinpokomon()
+        return self.builder.resultado()
 
     def buildCarnotron(self):
-        self.builder.setRandom(random)
+        self.builder.setRandom(self.random)
         self.builder.setNombre("Carnotron")
-        self.builder.setVida(30)
+        self.builder.setVida(20)
         ataqueVeloz = self.generarAtaqueRayoVeloz()
         ataqueCanionSonico = self.generarAtaqueAtaqueCanionSonico()
         ataquesCarnotron = [ataqueVeloz, ataqueCanionSonico]
         self.builder.setAtaques(ataquesCarnotron)
         naturalezaAnimal = self.generarNaturaleza()
         self.builder.setNaturaleza(naturalezaAnimal)
-        return self.builder.chinpokomon()
+        return self.builder.resultado()
 
     def generarNaturaleza(self):
         return AnimalNaturaleza("Animal")

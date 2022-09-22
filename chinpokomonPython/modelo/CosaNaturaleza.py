@@ -7,4 +7,4 @@ class CosaNaturaleza(Naturaleza):
         super().__init__(nombre)
 
     def tieneVentaja(self, naturaleza):
-        return True if naturaleza.nombre() == "Robot" else False
+        return True if naturaleza.nombre == "Robot" else False

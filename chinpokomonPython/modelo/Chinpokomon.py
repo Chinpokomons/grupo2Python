@@ -2,51 +2,51 @@ class Chinpokomon(object):
 
     # aca irian los atributos, agregar property
     def __init__(self):
-        self.__nombre= None
-        self.__vida = None
-        self.__listaAtaques = []
-        self.__naturaleza = None
-        self.__random = None
+        self.__nombreInChinpokomon= None
+        self.__vidaInChinpokomon = None
+        self.__listaAtaquesInChinpokomon = []
+        self.__naturalezaInChinpokomon = None
+        self.__randomInChinpokomon = None
 
     @property
-    def nombre(self):
-      return self.__nombre
+    def nombreInChinpokomon(self):
+      return self.__nombreInChinpokomon
     
-    @nombre.setter #Propiedad SETTER
-    def nombre(self, nuevo):
-        self.__nombre = nuevo
+    @nombreInChinpokomon.setter #Propiedad SETTER
+    def nombreInChinpokomon(self, nuevo):
+        self.__nombreInChinpokomon = nuevo
 
     @property
-    def vida(self):
-      return self.__vida
+    def vidaInChinpokomon(self):
+      return self.__vidaInChinpokomon
 
-    @vida.setter
-    def vida(self,nuevo):
-      self.__vida = nuevo
-    
-    @property
-    def listaAtaques(self):
-      return self.__listaAtaques
-
-    @listaAtaques.setter
-    def listaAtaques(self,nuevo):
-      self.__listaAtaques = nuevo
+    @vidaInChinpokomon.setter
+    def vidaInChinpokomon(self,nuevo):
+      self.__vidaInChinpokomon = nuevo
     
     @property
-    def naturaleza(self):
-      return self.__naturaleza
+    def listaAtaquesInChinpokomon(self):
+      return self.__listaAtaquesInChinpokomon
 
-    @naturaleza.setter
-    def naturaleza(self,nuevo):
-      self.__naturaleza = nuevo
+    @listaAtaquesInChinpokomon.setter
+    def listaAtaquesInChinpokomon(self,nuevo):
+      self.__listaAtaquesInChinpokomon = nuevo
+    
+    @property
+    def naturalezaInChinpokomon(self):
+      return self.__naturalezaInChinpokomon
+
+    @naturalezaInChinpokomon.setter
+    def naturalezaInChinpokomon(self,nuevo):
+      self.__naturalezaInChinpokomon = nuevo
 
     @property
-    def random(self):
-      return self.__random
+    def randomInChinpokomon(self):
+      return self.__randomInChinpokomon
 
-    @random.setter
-    def random(self,nuevo):
-      self.random = nuevo
+    @randomInChinpokomon.setter
+    def randomInChinpokomon(self,nuevo):
+      self.__randomInChinpokomon = nuevo
     
     def ataque(self, unChimpokomon):
       if (self.noEstaMuertoOtroChimpokomon(unChimpokomon) and self.estoyVivo()):
@@ -54,23 +54,23 @@ class Chinpokomon(object):
 
     def atacarSegunAtaqueSeleccionado(self, chimpokomonAAtacar):
         if(self.cantidadDeAtaques == 1):
-            ataque = self.listaAtaques()[0]
+            ataque = self.listaAtaquesInChinpokomon[0]
             ataque.generarEfecto(self, chimpokomonAAtacar)
         else:
-            cantidadDeAtaques = len(self.listaAtaques())
-            rand = self.random
+            cantidadDeAtaques = len(self.listaAtaquesInChinpokomon)
+            rand = self.randomInChinpokomon
             ataqueElegido = rand.generarRandom(cantidadDeAtaques)
-            ataque = self.listaAtaques()[ataqueElegido]
+            ataque = self.listaAtaquesInChinpokomon[ataqueElegido]
             ataque.generarEfecto(self, chimpokomonAAtacar)
 
     def estoyVivo(self):
-        return self.vida > 0
+        return self.vidaInChinpokomon > 0
 
     def noEstaMuertoOtroChimpokomon(self, chimpokomon):
-        return chimpokomon.vida() > 0
+        return chimpokomon.vidaInChinpokomon > 0
 
     def tostring(self):
-        return self.nombre + " tiene de vida: " +  str(self.vida)
+        return self.nombreInChinpokomon + " tiene de vida: " +  str(self.vidaInChinpokomon)
 
     def cantidadDeAtaques(self):
         return len(self.listaAtaques)
