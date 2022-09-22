@@ -56,22 +56,22 @@ class Chinpokomon():
             self.atacarSegunAtaqueSeleccionado(unChimpokomon)
 
     def atacarSegunAtaqueSeleccionado(self, chimpokomonAAtacar):
-        if(len(self.getAtaques()) == 1):
+        if(len(self.listaAtaques()) == 1):
 
-            ataque = self.getAtaques()[0]
+            ataque = self.listaAtaques()[0]
             ataque.generarEfecto(self, chimpokomonAAtacar)
         else:
-            cantidadDeAtaques = len(self.getAtaques())
-            rand = self.getRandom()
+            cantidadDeAtaques = len(self.listaAtaques())
+            rand = self.random()
             ataqueElegido = rand.generarRandom(cantidadDeAtaques)
-            ataque = self.getAtaques()[ataqueElegido]
+            ataque = self.listaAtaques()[ataqueElegido]
             ataque.generarEfecto(self, chimpokomonAAtacar)
 
     def estoyVivo(self):
-        return self.getVida() > 0
+        return self.vida() > 0
 
     def noEstaMuertoOtroChimpokomon(self, chimpokomon):
-        return chimpokomon.getVida() > 0
+        return chimpokomon.vida() > 0
 
     def toString(self):
-        return self.getNombre() + " " + str(self.getVida())
+        return self.nombre() + " " + str(self.vida())
