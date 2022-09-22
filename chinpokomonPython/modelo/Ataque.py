@@ -45,7 +45,7 @@ class Ataque(object):
     def generarRandom(self, valorMaximoExcluyente):
         return self.random().randint(0, valorMaximoExcluyente)
 
-    def danioExtraNaturaleza(self, chinpokomon1: Chinpokomon, chinpokomon2: Chinpokomon):
+    def danioExtraNaturaleza(self, chinpokomon1, chinpokomon2):
         # //determinamos si el chinpokomon1 tiene ventaja de naturaleza sobre el chinpokomon2
         # // si tiene ventaja por naturaleza accedera a este if y aumentara el ataque instanciado al inicio + daño adicional
 
