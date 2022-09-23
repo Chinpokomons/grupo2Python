@@ -1,12 +1,10 @@
-import random
 from Chinpokomon import Chinpokomon
-#import GeneracionDeRandom
+from GeneracionDeRandom import NumAleatorio
 class Ataque(object):
     def __init__(self, valorDeAtaque, valorAtaqueNaturaleza):
         self.__valorDeAtaque = valorDeAtaque
         self.__valorAtaqueNaturaleza = valorAtaqueNaturaleza
-        self.__random = random
-        #self.__random = GeneracionDeRandom.NumAleatorio()
+        self.__random = NumAleatorio()
 
     # getters
     @property
@@ -41,11 +39,9 @@ class Ataque(object):
     def sePuedeAtacar(self, chinpokomon1, chinpokomon2):
         return chinpokomon2.vidaInChinpokomon > 0 or chinpokomon1.vidaInChinpokomon > 0
 
-    def generarRandom(self, valorMaximoExcluyente):
-        return self.random.randint(0, valorMaximoExcluyente)
 
-#    def generarRandom(self,valorMaximoExcluyente):
-#      return self.random.generarRandom(valorMaximoExcluyente)    
+    def generarRandom(self,valorMaximoExcluyente):
+      return self.random.generarRandom(valorMaximoExcluyente)    
     
     def danioExtraNaturaleza(self, chinpokomon1: Chinpokomon, chinpokomon2: Chinpokomon):
         # //determinamos si el chinpokomon1 tiene ventaja de naturaleza sobre el chinpokomon2
