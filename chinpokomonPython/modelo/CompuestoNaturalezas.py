@@ -15,12 +15,12 @@ class CompuestoNaturalezas(Naturaleza):
     def quitar(self, naturaleza):
         self.naturalezas.remove(naturaleza)
 
-    def getNombre(self):
-        texto = self.naturalezas[0].getNombre()
+    def nombre(self):
+        texto = self.naturalezas[0].nombre()
 
         for i in range(len(self.naturalezas)):
             if i != 0:
-                texto = texto + " | " + self.naturalezas[i].getNombre()
+                texto = texto + " | " + self.naturalezas[i].nombre()
 
         return texto
 
