@@ -1,67 +1,78 @@
-from random import random
-
-
-class Chinpokomon():
+class Chinpokomon(object):
 
     # aca irian los atributos, agregar property
     def __init__(self):
-        self.__nombre = None
-        self.__vida = None
-        self.__listaAtaques = []
-        self.__naturaleza = None
-        self.__random = None
+        self.__nombreInChinpokomon= None
+        self.__vidaInChinpokomon = None
+        self.__listaAtaquesInChinpokomon = []
+        self.__naturalezaInChinpokomon = None
+        self.__randomInChinpokomon = None
 
-    def getRandom(self):
-        return self.random
-
-    def setRandom(self, random):
-        self.random = random
-
-    def setNombre(self, nombre):
-        self.nombre = nombre
-
-    def getNaturaleza(self):
-        return self.naturaleza
+    @property
+    def nombreInChinpokomon(self):
+      return self.__nombreInChinpokomon
     
-    def getNombre(self):
-        return self.nombre
+    @nombreInChinpokomon.setter #Propiedad SETTER
+    def nombreInChinpokomon(self, nuevo):
+        self.__nombreInChinpokomon = nuevo
 
-    def getVida(self):
-        return self.vida
+    @property
+    def vidaInChinpokomon(self):
+      return self.__vidaInChinpokomon
 
-    def setVida(self, vida):
-        self.vida = vida
-
-    def getAtaques(self):
-        return self.listaAtaques
-
-    def setAtaques(self, listaDeAtaques):
-        self.listaAtaques = listaDeAtaques
-
-    def setNaturaleza(self, naturaleza):
-        self.naturaleza = naturaleza
-
-    def ataque(self, unChimpokomon):
-        if (self.noEstaMuertoOtroChimpokomon(unChimpokomon) and self.estoyVivo()):
-            self.atacarSegunAtaqueSeleccionado(unChimpokomon)
-
-    def atacarSegunAtaqueSeleccionado(self, chimpokomonAAtacar):
-        if(len(self.getAtaques()) == 1):
+    @vidaInChinpokomon.setter
+    def vidaInChinpokomon(self,nuevo):
+      self.__vidaInChinpokomon = nuevo
     
-            ataque = self.getAtaques()[0]
-            ataque.generarEfecto(self,chimpokomonAAtacar)
+    @property
+    def listaAtaquesInChinpokomon(self):
+      return self.__listaAtaquesInChinpokomon
+
+    @listaAtaquesInChinpokomon.setter
+    def listaAtaquesInChinpokomon(self,nuevo):
+      self.__listaAtaquesInChinpokomon = nuevo
+    
+    @property
+    def naturalezaInChinpokomon(self):
+      return self.__naturalezaInChinpokomon
+
+    @naturalezaInChinpokomon.setter
+    def naturalezaInChinpokomon(self,nuevo):
+      self.__naturalezaInChinpokomon = nuevo
+
+    @property
+    def randomInChinpokomon(self):
+      return self.__randomInChinpokomon
+
+    @randomInChinpokomon.setter
+    def randomInChinpokomon(self,nuevo):
+      self.__randomInChinpokomon = nuevo
+    
+    def ataque(self, unChimpokomon,log):
+      if (self.noEstaMuertoOtroChimpokomon(unChimpokomon) and self.estoyVivo()):
+            self.atacarSegunAtaqueSeleccionado(unChimpokomon,log)
+
+    def atacarSegunAtaqueSeleccionado(self, chimpokomonAAtacar,log):
+        if(self.cantidadDeAtaques == 1):
+            ataque = self.listaAtaquesInChinpokomon[0]
+            ataque.generarEfecto(self, chimpokomonAAtacar,log)
+            log.warn("El ataque es: " + ataque.toString())
         else:
-            cantidadDeAtaques = len(self.getAtaques())
-            rand=self.getRandom()
+            cantidadDeAtaques = len(self.listaAtaquesInChinpokomon)
+            rand = self.randomInChinpokomon
             ataqueElegido = rand.generarRandom(cantidadDeAtaques)
-            ataque = self.getAtaques()[ataqueElegido]
-            ataque.generarEfecto(self,chimpokomonAAtacar)
+            ataque = self.listaAtaquesInChinpokomon[ataqueElegido]
+            log.warn("El ataque es: " + ataque.toString())
+            ataque.generarEfecto(self, chimpokomonAAtacar,log)
 
     def estoyVivo(self):
-        return self.getVida() > 0
+        return self.vidaInChinpokomon > 0
 
     def noEstaMuertoOtroChimpokomon(self, chimpokomon):
-        return chimpokomon.getVida() > 0
+        return chimpokomon.vidaInChinpokomon > 0
 
-    def toString(self):
-        return self.getNombre() + " " + str(self.getVida()) 
+    def tostring(self):
+        return self.nombreInChinpokomon + " tiene de vida: " +  str(self.vidaInChinpokomon)
+
+    def cantidadDeAtaques(self):
+        return len(self.listaAtaques)
