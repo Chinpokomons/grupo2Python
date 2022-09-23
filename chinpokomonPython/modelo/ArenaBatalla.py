@@ -22,10 +22,10 @@ class ArenaDeBatalla:
 
     def pelear(self, log):
         while(self.noTerminoLaPelea()):
-            self.chinpokomon1.ataque(self.chinpokomon2)
-            log.info("ataco " + self.chinpokomon1.nombreInChinpokomon)
-            self.chinpokomon2.ataque(self.chinpokomon1)
-            log.info("ataco " + self.chinpokomon2.nombreInChinpokomon)
+            self.chinpokomon1.ataque(self.chinpokomon2,log)
+            log.info("ataco " + self.chinpokomon1.nombreInChinpokomon +", la vida del chipokomon que ataco es de: "+ str(self.chinpokomon1.vidaInChinpokomon) +" ,y vida que tiene el chinpokomon atacado es de : " + str(self.chinpokomon2.vidaInChinpokomon))
+            self.chinpokomon2.ataque(self.chinpokomon1,log)
+            log.info("ataco " + self.chinpokomon2.nombreInChinpokomon +", la vida del chipokomon que ataco es de: "+ str(self.chinpokomon2.vidaInChinpokomon) +", vida que tiene el chinpokomon atacado es de : " + str(self.chinpokomon1.vidaInChinpokomon))
         self.imprimirChinpokomonGanador(log, self.chinpokomonGanador())
 
     def noTerminoLaPelea(self):

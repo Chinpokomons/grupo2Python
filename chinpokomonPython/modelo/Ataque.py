@@ -33,8 +33,9 @@ class Ataque(object):
     def valorAtaqueNaturaleza(self, nuevo):
         self.__valorAtaqueNaturaleza = nuevo
 
-    def generarEfecto(self, chinpokomon1, chinpokomon2):
+    def generarEfecto(self, chinpokomon1, chinpokomon2,log):
         if self.sePuedeAtacar(chinpokomon1, chinpokomon2):
+            log.warn("El ataque hizo de danio: " + str(self.valorDeAtaque + self.danioExtraNaturaleza(chinpokomon1, chinpokomon2)))
             chinpokomon2.vidaInChinpokomon = chinpokomon2.vidaInChinpokomon - self.valorDeAtaque - self.danioExtraNaturaleza(chinpokomon1, chinpokomon2)
 
     def sePuedeAtacar(self, chinpokomon1, chinpokomon2):

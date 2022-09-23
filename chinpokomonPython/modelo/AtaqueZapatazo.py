@@ -6,7 +6,12 @@ class AtaqueZapatazo(Ataque):
         super().__init__(valorDeAtaque,valorAtaqueNaturaleza)
         self.rand = GeneracionDeRandom.NumAleatorio()
         
-    def generarEfecto(self,chinpokomon1, chinpokomon2):
-        super().generarEfecto(chinpokomon1, chinpokomon2)
+    def generarEfecto(self,chinpokomon1, chinpokomon2,log):
+        super().generarEfecto(chinpokomon1, chinpokomon2,log)
         if(self.rand.generarRandom(2) == 1):
-            super().generarEfecto(chinpokomon1, chinpokomon2)
+            log.warn("El ataque Zapatazo fue especial y ataco dos veces")
+            super().generarEfecto(chinpokomon1, chinpokomon2,log)
+
+    def toString(self):
+        return "Zapatazo"
+        

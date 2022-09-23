@@ -48,20 +48,22 @@ class Chinpokomon(object):
     def randomInChinpokomon(self,nuevo):
       self.__randomInChinpokomon = nuevo
     
-    def ataque(self, unChimpokomon):
+    def ataque(self, unChimpokomon,log):
       if (self.noEstaMuertoOtroChimpokomon(unChimpokomon) and self.estoyVivo()):
-            self.atacarSegunAtaqueSeleccionado(unChimpokomon)
+            self.atacarSegunAtaqueSeleccionado(unChimpokomon,log)
 
-    def atacarSegunAtaqueSeleccionado(self, chimpokomonAAtacar):
+    def atacarSegunAtaqueSeleccionado(self, chimpokomonAAtacar,log):
         if(self.cantidadDeAtaques == 1):
             ataque = self.listaAtaquesInChinpokomon[0]
-            ataque.generarEfecto(self, chimpokomonAAtacar)
+            ataque.generarEfecto(self, chimpokomonAAtacar,log)
+            log.warn("El ataque es: " + ataque.toString())
         else:
             cantidadDeAtaques = len(self.listaAtaquesInChinpokomon)
             rand = self.randomInChinpokomon
             ataqueElegido = rand.generarRandom(cantidadDeAtaques)
             ataque = self.listaAtaquesInChinpokomon[ataqueElegido]
-            ataque.generarEfecto(self, chimpokomonAAtacar)
+            log.warn("El ataque es: " + ataque.toString())
+            ataque.generarEfecto(self, chimpokomonAAtacar,log)
 
     def estoyVivo(self):
         return self.vidaInChinpokomon > 0
